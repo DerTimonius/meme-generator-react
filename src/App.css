@@ -40,6 +40,7 @@ form {
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   color: white;
+  background: rgba(0, 0, 0, 0.7);
 }
 input {
   padding: 10px;
@@ -63,22 +64,5 @@ button {
 }
 button:hover {
   background-color: purple;
-  transition: background-color 0.3s ease-in;
-}
-
-a {
-  appearance: none;
-  -webkit-appearance: none;
-
-  padding: 10px;
-  border: none;
-  background-color: rgb(71, 169, 189);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 5px;
-  width: 200px;
-}
-a:hover {
-  background-color: red;
   transition: background-color 0.3s ease-in;
 }
