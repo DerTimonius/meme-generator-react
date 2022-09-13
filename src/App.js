@@ -1,5 +1,4 @@
 import './App.css';
-/** @jsxImportSource @emotion/react */
 import { useState } from 'react';
 
 function App() {
