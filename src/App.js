@@ -64,7 +64,6 @@ function App() {
   return (
     <div className="App">
       <div>
-        {' '}
         <h1>Create a Meme by yourself!</h1>
         <img src={image} alt="Created meme" data-test-id="meme-image" />
       </div>
@@ -99,10 +98,12 @@ function App() {
           onKeyPress={handleKeyPress}
         />
         <br />
+        <br />
         <button onClick={handleSubmit} data-test-id="generate-meme">
           Generate
         </button>
 
+        <br />
         <br />
         <a href={url} onClick={handleDownload} download>
           Download
