@@ -1,5 +1,5 @@
 body {
-  background-image: url(http://s1.picswalls.com/wallpapers/2014/07/19/colorful_110902282_65.jpg);
+  background-image: url('../public/img/colorful_110902282_65.jpg');
   background-size: cover;
 }
 .App {
