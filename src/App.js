@@ -1,6 +1,5 @@
 import './App.css';
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import { useState } from 'react';
 
 function App() {
@@ -43,9 +42,9 @@ function App() {
       .then((response) => response.blob())
       .then((blob) => {
         // Create blob link to download
-        const url = window.URL.createObjectURL(new Blob([blob]));
+        const fetchedUrl = window.URL.createObjectURL(new Blob([blob]));
         const link = document.createElement('a');
-        link.href = url;
+        link.href = fetchedUrl;
         link.setAttribute('download', fileName);
 
         // Append to html link element page
@@ -56,7 +55,8 @@ function App() {
 
         // Clean up and remove the link
         link.parentNode.removeChild(link);
-      });
+      })
+      .catch((err) => console.log(err));
 
     count++;
   };
