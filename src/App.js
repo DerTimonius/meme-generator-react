@@ -76,6 +76,7 @@ function App() {
           value={topText}
           onClick={() => setTopText('')}
           onChange={(event) => setTopText(event.currentTarget.value)}
+          onKeyPress={handleKeyPress}
         />
         <br />
         <label htmlFor="bottom">Bottom Text</label>
@@ -85,6 +86,7 @@ function App() {
           value={bottomText}
           onClick={() => setBottomText('')}
           onChange={(event) => setBottomText(event.currentTarget.value)}
+          onKeyPress={handleKeyPress}
         />
         <br />
         <label htmlFor="type">Meme template</label>
