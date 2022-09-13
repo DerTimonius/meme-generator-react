@@ -67,7 +67,7 @@ function App() {
         <img src={image} alt="Created meme" data-test-id="meme-image" />
       </div>
       <form>
-        <label htmlFor="top">Top Text</label>
+        <label htmlFor="top">Top text</label>
         <input
           name="top"
           id="top"
@@ -77,7 +77,7 @@ function App() {
           onKeyPress={handleKeyPress}
         />
         <br />
-        <label htmlFor="bottom">Bottom Text</label>
+        <label htmlFor="bottom">Bottom text</label>
         <input
           name="bottom"
           id="bottom"
