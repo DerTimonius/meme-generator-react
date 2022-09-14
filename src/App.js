@@ -105,13 +105,13 @@ function App() {
         <br />
         <br />
 
-        <button {/* onClick={handleSubmit} */} data-test-id="generate-meme">
+        <button data-test-id="generate-meme">
           Generate
         </button>
 
         <br />
         <br />
-        <a href={url} {/* onClick={handleDownload} */} download>
+        <a href={url} download>
           <button>Download</button>
         </a>
       </form>
