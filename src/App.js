@@ -2,9 +2,9 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [topText, setTopText] = useState('');
-  const [bottomText, setBottomText] = useState('');
-  const [memeType, setMemeType] = useState('');
+  const [topText, setTopText] = useState('hello');
+  const [bottomText, setBottomText] = useState('there');
+  const [memeType, setMemeType] = useState('bender');
   const [image, setImage] = useState(
     ' https://api.memegen.link/images/xy/show_us_all_the_memes!.jpg?watermark=memecomplete.com&token=yds9lf2jrx72zoi11jnh ',
   );
