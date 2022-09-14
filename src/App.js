@@ -22,7 +22,7 @@ function App() {
             .replace('/', '~s')
       : text;
   });
-  const url = `https://api.memegen.link/images${corrected[0]}${corrected[1]}${corrected[2]}.jpeg`;
+  const url = `https://api.memegen.link/images${corrected[0]}${corrected[1]}${corrected[2]}.jpg`;
 
   const handleSubmit = (event) => {
     event.preventDefault();
