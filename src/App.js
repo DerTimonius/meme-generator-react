@@ -110,7 +110,7 @@ function App() {
         <button data-test-id="generate-meme">Generate</button>
         <br />
         <br />
-        <a href={url} download>
+        <a href={url} onClick={handleDownload} download>
           <button>Download</button>
         </a>
       </form>
