@@ -6,7 +6,7 @@ function App() {
   const [bottomText, setBottomText] = useState('there');
   const [memeType, setMemeType] = useState('bender');
   const [image, setImage] = useState(
-    ' https://api.memegen.link/images/xy/show_us_all_the_memes!.jpg?watermark=memecomplete.com&token=yds9lf2jrx72zoi11jnh ',
+    ' https://api.memegen.link/images/bender/hello/there.jpeg ',
   );
   let count = 1;
   const fileName = `/meme_${count}.jpeg`;
