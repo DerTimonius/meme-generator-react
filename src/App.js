@@ -27,7 +27,6 @@ function App() {
       ? `https://api.memegen.link/images${corrected[0]}${corrected[1]}${corrected[2]}.jpg`
       : 'https://api.memegen.link/images/bender/hello/there.jpeg';
 
-<<<<<<< HEAD
   /*   const handleSubmit = (event) => {
 =======
 /*   const handleSubmit = (event) => {
@@ -108,15 +107,7 @@ function App() {
         />
         <br />
         <br />
-
-<<<<<<< HEAD
         <button data-test-id="generate-meme">Generate</button>
-=======
-        <button data-test-id="generate-meme">
-          Generate
-        </button>
->>>>>>> a40e08f9610b9de3eb70b8e275f155fdb8a7758f
-
         <br />
         <br />
         <a href={url} download>
