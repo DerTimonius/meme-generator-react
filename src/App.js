@@ -13,14 +13,14 @@ function App() {
 
   const input = [memeType, topText, bottomText];
   const corrected = input.map((text) => {
-    return (
-      '/' +
-      text
-        .replace(' ', '_')
-        .replace('#', '~h')
-        .replace('?', '~q')
-        .replace('/', '~s')
-    );
+    return text
+      ? '/' +
+          text
+            .replace(' ', '_')
+            .replace('#', '~h')
+            .replace('?', '~q')
+            .replace('/', '~s')
+      : text;
   });
   const url = `https://api.memegen.link/images${corrected[0]}${corrected[1]}${corrected[2]}.jpeg`;
 
