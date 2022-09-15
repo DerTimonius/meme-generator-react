@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 function App() {
   const [topText, setTopText] = useState('hello');
-  const [bottomText, setBottomText] = useState('there');
+  const [bottomText, setBottomText] = useState('');
   const [memeType, setMemeType] = useState('bender');
   const [image, setImage] = useState(
     ' https://api.memegen.link/images/bender/hello/there.jpeg ',
