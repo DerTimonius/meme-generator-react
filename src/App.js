@@ -1,10 +1,11 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [topText, setTopText] = useState('hello');
-  const [bottomText, setBottomText] = useState('there');
+  const [topText, setTopText] = useState('');
+  const [bottomText, setBottomText] = useState('');
   const [memeType, setMemeType] = useState('bender');
+  const [templates, setTemplates] = useState([]);
   const [image, setImage] = useState(
     ' https://api.memegen.link/images/bender/hello/there.jpeg ',
   );
@@ -23,6 +24,13 @@ function App() {
       : text;
   });
   const url = `https://api.memegen.link/images${corrected[0]}${corrected[1]}${corrected[2]}.jpg`;
+
+  useEffect(() => {
+    fetch('https://api.memegen.link/templates')
+      .then((res) => res.json())
+      .then(setTemplates)
+      .catch((err) => console.log(err));
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -69,7 +77,24 @@ function App() {
         <h1>Create a Meme by yourself!</h1>
         <img src={image} alt="Created meme" data-test-id="meme-image" />
       </div>
-      <form>
+      <form className="form">
+        <label htmlFor="type">Meme template</label>
+        <select
+          id="type"
+          value={memeType}
+          onClick={(event) => setMemeType(event.currentTarget.value)}
+          onChange={(event) => setMemeType(event.currentTarget.value)}
+          onKeyPress={handleKeyPress}
+        >
+          {templates.map((template) => {
+            return (
+              <option key={template.id} value={template.id}>
+                {template.name}
+              </option>
+            );
+          })}
+        </select>
+        <br />
         <label htmlFor="top">Top text</label>
         <input
           name="top"
@@ -87,16 +112,6 @@ function App() {
           value={bottomText}
           onClick={() => setBottomText('')}
           onChange={(event) => setBottomText(event.currentTarget.value)}
-          onKeyPress={handleKeyPress}
-        />
-        <br />
-        <label htmlFor="type">Meme template</label>
-        <input
-          name="type"
-          id="type"
-          value={memeType}
-          onClick={() => setMemeType('')}
-          onChange={(event) => setMemeType(event.currentTarget.value)}
           onKeyPress={handleKeyPress}
         />
         <br />
