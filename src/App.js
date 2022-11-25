@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [topText, setTopText] = useState('');
+  const [topText, setTopText] = useState('hello');
   const [bottomText, setBottomText] = useState('');
   const [memeType, setMemeType] = useState('bender');
   const [templates, setTemplates] = useState([]);
