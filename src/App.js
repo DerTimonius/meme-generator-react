@@ -9,11 +9,9 @@ function App() {
   const [image, setImage] = useState(
     ' https://api.memegen.link/images/bender/hello/there.jpeg ',
   );
-  let count = 1;
-  const fileName = `/meme_${count}.jpeg`;
 
-  const input = [memeType, topText, bottomText];
-  const corrected = input.map((text) => {
+  const userInput = [memeType, topText, bottomText];
+  const sanitisedUserInput = userInput.map((text) => {
     return text
       ? '/' +
           text
@@ -23,12 +21,12 @@ function App() {
             .replace('/', '~s')
       : text;
   });
-  const url = `https://api.memegen.link/images${corrected[0]}${corrected[1]}${corrected[2]}.jpg`;
+  const url = `https://api.memegen.link/images${sanitisedUserInput[0]}${sanitisedUserInput[1]}${sanitisedUserInput[2]}.jpg`;
 
   useEffect(() => {
     fetch('https://api.memegen.link/templates')
       .then((res) => res.json())
-      .then(setTemplates)
+      .then((data) => setTemplates(data))
       .catch((err) => console.log(err));
   }, []);
 
@@ -36,11 +34,7 @@ function App() {
     event.preventDefault();
     setImage(url);
   };
-  const handleKeyPress = (event) => {
-    if (event.keyCode === 13) {
-      handleSubmit();
-    }
-  };
+
   const handleDownload = (event) => {
     event.preventDefault();
     fetch(url, {
@@ -55,7 +49,7 @@ function App() {
         const fetchedUrl = window.URL.createObjectURL(new Blob([blob]));
         const link = document.createElement('a');
         link.href = fetchedUrl;
-        link.setAttribute('download', fileName);
+        link.setAttribute('download', `meme_${memeType}.jpeg`);
 
         // Append to html link element page
         document.body.appendChild(link);
@@ -67,8 +61,6 @@ function App() {
         link.parentNode.removeChild(link);
       })
       .catch((err) => console.log(err));
-
-    count++;
   };
 
   return (
@@ -84,7 +76,6 @@ function App() {
           value={memeType}
           onClick={(event) => setMemeType(event.currentTarget.value)}
           onChange={(event) => setMemeType(event.currentTarget.value)}
-          onKeyPress={handleKeyPress}
         >
           {templates.map((template) => {
             return (
@@ -102,7 +93,6 @@ function App() {
           value={topText}
           onClick={() => setTopText('')}
           onChange={(event) => setTopText(event.currentTarget.value)}
-          onKeyPress={handleKeyPress}
         />
         <br />
         <label htmlFor="bottom">Bottom text</label>
@@ -112,7 +102,6 @@ function App() {
           value={bottomText}
           onClick={() => setBottomText('')}
           onChange={(event) => setBottomText(event.currentTarget.value)}
-          onKeyPress={handleKeyPress}
         />
         <br />
         <br />
